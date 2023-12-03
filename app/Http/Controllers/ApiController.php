@@ -38,4 +38,49 @@ class ApiController extends Controller
             return response()->json(['message' => $message],201);
         }
     }
+
+
+
+    // test post
+    public function testPost(Request $request){
+        if($request->isMethod('post')){
+           $data =  $request->all();
+
+
+           $request->validate([
+            'email' => 'required'
+           ]);
+
+           $userPost = new User();
+           $userPost->name = $data['name'];
+           $userPost->email = $data['email'];
+           $userPost->password = $data['password'];
+           $userPost->save();
+
+           $success = "new user inserted!";
+           return response()->json(['success'=>$success],201);
+        }
+    }
+
+
+    public function testPostMulti(Request $request){
+        if($request->isMethod('post')){
+           $data = $request->all();
+
+
+           foreach($data['users'] as $multi){
+                $userPost = new User();
+                $userPost->name = $multi['name'];
+                $userPost->email = $multi['email'];
+                $userPost->password = bcrypt($multi['password']);
+                $userPost->save();
+           }
+
+           $success = "new user inserted!";
+           return response()->json(['success'=>$success],201);
+        }
+    }
+
+
+
 }

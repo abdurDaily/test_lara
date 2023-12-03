@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('api/{id?}', [ApiController::class, 'apiTest'])->name('apiTest');
 Route::post('/insert-data', [ApiController::class, 'insertData'])->name('insert.data');
+Route::post('/test-post', [ApiController::class,'testPost']);
+Route::post('/test-post-multi', [ApiController::class,'testPostMulti']);

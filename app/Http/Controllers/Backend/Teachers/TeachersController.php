@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Teachers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -12,7 +13,8 @@ class TeachersController extends Controller
 {
     /**FACULTY INSERT **/
     public function insert(){
-        return view('Admin.Faculty.insert');
+        $allSubject = Subject::all();
+        return view('Admin.Faculty.insert', compact('allSubject'));
     }
     
     /**FACULTY INSERT DATA */
@@ -20,6 +22,8 @@ class TeachersController extends Controller
         $request->validate([
             'name' => 'required',
             'designation' => 'required',
+            // 'subject' => 'required',
+            // 'insertData' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg',
             'phone' => 'required',
             'email' => 'required',
@@ -35,6 +39,7 @@ class TeachersController extends Controller
         $teacherData->name = $request->name;
         $teacherData->slug = uniqid(Str::slug($request->name));
         $teacherData->designation = $request->designation;
+        $teacherData->subject = implode(', ', $request->subject);
         $teacherData->phone = $request->phone;
         $teacherData->email = $request->email;
         $teacherData->website = $request->website;
@@ -42,6 +47,7 @@ class TeachersController extends Controller
         $teacherData->biography = $request->bio;
         $teacherData->research = $request->research;
         $teacherData->teaching_sub = $request->teaching;
+        // dd($teacherData); 
         $teacherData->save();
         return back();
     }

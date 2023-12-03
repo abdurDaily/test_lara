@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ApprovalController;
 use App\Http\Controllers\Backend\Balance\BalanceController;
+use App\Http\Controllers\Backend\Routine\RoutineController;
 use App\Http\Controllers\Backend\SecondaryHomeController;
 use App\Models\BlogSubCategory;
 
@@ -67,5 +68,9 @@ Route::get('/generate-pdf',[BalanceController::class,'generate_pdf'])->name('inv
  */
 Route::middleware('check')->prefix('/dashbord')->group(function(){
 
-  Route::get('./index', [SecondaryHomeController::class, 'homeIndex'])->name('dashbord.index');
+  Route::get('/routine', [RoutineController::class, 'routine'])->name('routine.insert');
+  Route::post('/routine', [RoutineController::class, 'routineInsert'])->name('routine.insert.post');
+  Route::get('/routine-list', [RoutineController::class, 'routineList'])->name('routine.list');
+  Route::get('/routine-delete/{id}', [RoutineController::class, 'routineDelete'])->name('routine.delete');
+  Route::get('/index', [SecondaryHomeController::class, 'homeIndex'])->name('dashbord.index');
 });

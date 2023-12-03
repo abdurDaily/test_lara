@@ -60,6 +60,29 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#" class="menu menu--active">
+                        <div class="menu__icon"> <i data-feather="home"></i> </div>
+                        <div class="menu__title"> Routine <i data-feather="chevron-down" class="menu__sub-icon menu__sub-icon--active"></i> </div>
+                    </a>
+                    <ul class="menu__sub-open">
+                        <li>
+                            <a href="{{ route('routine.insert') }}" class="menu menu--active">
+                                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                                <div class="menu__title"> Insert Routine </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('routine.list') }}" class="menu menu--active">
+                                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                                <div class="menu__title"> Insert Routine </div>
+                            </a>
+                        </li>
+                       
+                       
+                    
+                    </ul>
+                </li>
 
                 @hasanyrole('admin')
 
@@ -276,7 +299,31 @@
                             </li>
                         </ul>
                     </li>
-
+                    <li>
+                        <a href="#" class=" side-menu--open side-menu">
+                            <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                            <div class="side-menu__title">
+                                Routine 
+                                <div class="side-menu__sub-icon"> <i data-feather="chevron-down"></i> </div>
+                            </div>
+                        </a>
+                        <ul class="side-menu__sub-open">
+                            <li>
+                                <a href="{{ route('routine.insert') }}" class="side-menu side-menu--active side-menu--open">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Insert Routine </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('routine.list') }}" class="side-menu side-menu--active side-menu--open">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Routine List </div>
+                                </a>
+                            </li>
+                            
+                         
+                        </ul>
+                    </li>
 
                     @hasanyrole('admin')
 

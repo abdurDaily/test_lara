@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('designation');
+            $table->longText('subject')->nullable();
             $table->string('phone');
             $table->string('email');
             $table->string('image');

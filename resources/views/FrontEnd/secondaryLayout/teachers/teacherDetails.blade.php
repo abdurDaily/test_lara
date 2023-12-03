@@ -51,6 +51,11 @@
                         <h4>Teaching Subject Info</h4>
                         {!! $teacherDetails->teaching_sub !!}
                     </div>
+
+                    <div class="edu-info">
+                        <h4>Assign Subject</h4>
+                        {!! $teacherDetails->subject !!}
+                    </div>
                     
 
                 </div>

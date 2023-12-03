@@ -20,7 +20,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="{{ $data->image }}" alt>
+                                <img style="height:250px; object-fit:cover;" src="{{ $data->image }}" alt>
 
                                 <ul class="team-social">
                                     <li><a href="{{ $data->website }}"><i class="fab fa-facebook-f"></i></a></li>
